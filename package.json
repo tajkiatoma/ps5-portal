@@ -1,0 +1,26 @@
+{
+  "name": "ps5-portal",
+  "version": "1.0.0",
+  "description": "This task is assigned by Professor Cor-Paul Bezemer of the University of Alberta to evaluate candidates for the ASGAARD lab.",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx live-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tajkiatoma/ps5-portal.git"
+  },
+  "keywords": [
+    "crawling"
+  ],
+  "author": "tajkiatoma@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tajkiatoma/ps5-portal/issues"
+  },
+  "homepage": "https://github.com/tajkiatoma/ps5-portal#readme",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
