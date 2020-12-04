@@ -1,6 +1,7 @@
-# ps5-portal
+# PS5 Portal
+This task is assigned by Professor Cor-Paul Bezemer of the University of Alberta to evaluate candidates for the ASGAARD lab.
 
-# The Task
+## The Task
 I like reading CNN news and Twitter, however I do not like their website. There is too much noise which takes away from the real content - Playstation 5!
 
 I would like to see the titles of the 25 latest articles about (i.e., with the name in the article) PS5 and the 25 latest tweets on one page, so that I can easily keep track of the news about this console. If there are less than 25, just show the ones that are available. In addition, I would like to be able to read the full articles/posts in a convenient way. 
@@ -16,7 +17,6 @@ You can use the programming language and tools that are convenient for you. Plea
 After you finish, please share with me:
 * The URL of the GitHub repository
 * A zipped copy of the website on which I can view the output (or even better, a link to the website)
-
 
 Note that this assignment is not about being the fastest to finish! You will get bonus points for creativity and the quality of your code and documentation.
 
