@@ -17,10 +17,12 @@ async function scrapCnn() {
             $articleList.forEach(article => {
                 let $link = article.querySelector("a");
                 let $date = article.querySelector(".cnn-search__result-publish-date span:nth-child(2)");
+                let $detail = article.querySelector(".cnn-search__result-body");
                 articles.push({
                     title: $link.innerHTML,
                     url: $link.getAttribute("href"),
-                    date: $date.innerHTML
+                    date: $date.innerHTML,
+                    detail: $detail.innerHTML
                 });
             });
 
@@ -56,7 +58,7 @@ async function scrapTwitter() {
         const browser = await puppeteer.launch({ headless: true });
         const page = await browser.newPage();
 
-        await page.goto('https://twitter.com/PlayStationCA', { timeout: 60000 });
+        await page.goto('https://twitter.com/PlayStationCA', { timeout: 3000000 });
         await page.setViewport({
             width: 1200,
             height: 2800
