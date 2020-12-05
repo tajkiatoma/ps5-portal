@@ -20,3 +20,34 @@ After you finish, please share with me:
 
 Note that this assignment is not about being the fastest to finish! You will get bonus points for creativity and the quality of your code and documentation.
 
+## Solution
+
+### Languages
+* JavaScript
+* HTML
+* CSS
+
+### Technologies and Frameworks
+* Scraping
+* Angular
+* jQuery
+
+### Dependencies
+* puppeteer
+
+### Challenges Faced
+* APIs are available but not easily consumable!
+* New in scraping
+
+## System Requirement
+* Node.js v12.19.0
+
+## How to Run
+1. Get the repository
+2. Run server 
+3. Run client
+
+## Visit the Page
+--- add the url
+
+## Limitations
