@@ -66,12 +66,15 @@ async function scrapTwitter() {
         await page.waitForSelector('article');
         await autoScroll(page);
 
-        let results = await page.$$eval('article div[lang]', ($tweetList) => {
+        let results = await page.$$eval('article', ($tweetList) => {
             let tweets = $tweetList.map((tweet) => {
+                let $title = tweet.querySelector("div[lang]");
+                let $link = tweet.querySelector("a[dir]");
+                let $date = tweet.querySelector("time");
                 return {
-                    title: tweet.textContent/* ,
-                    url: $link.getAttribute("href"),
-                    date: $date.innerHTML */
+                    title: $title.textContent ,
+                    url: 'https://twitter.com' + $link.getAttribute("href"),
+                    date: $date.innerHTML
                 };
             });
             return tweets;
@@ -106,6 +109,6 @@ var server = http.createServer(async (req, res) => {
 
 server.listen(5000);
 console.log('Node.js web server at port 5000 is running..')
-/* scrapCnn().then(function (data) {
+/* scrapTwitter().then(function (data) {
     console.log(data);
 }) */
