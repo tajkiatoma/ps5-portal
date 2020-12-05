@@ -1,7 +1,7 @@
 const http = require('http');
 const puppeteer = require('puppeteer');
 
-var server = http.createServer( async (req, res) => {
+var server = http.createServer(async (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:8080');
     if (req.url == "/cnn") {
         let cnnPosts = await scrapCnn()
@@ -22,9 +22,9 @@ var server = http.createServer( async (req, res) => {
 
 })
 
-server.listen(5000);
+//server.listen(5000);
 
-console.log('Node.js web server at port 5000 is running..')
+//console.log('Node.js web server at port 5000 is running..')
 
 
 async function scrapCnn() {
@@ -32,7 +32,7 @@ async function scrapCnn() {
         const browser = await puppeteer
             .launch();
         const page = await browser.newPage();
-        await page.goto('https://edition.cnn.com/search?q=playstation+5&size=25');
+        await page.goto('https://edition.cnn.com/search?q=playstation+5&size=25', {timeout: 60000});
         await page.waitForSelector('body');
 
         let grabArticles = await page.evaluate(() => {
@@ -58,10 +58,40 @@ async function scrapCnn() {
     }
 }
 
-async function scrapTwitter() {
-    try {
-        
-    } catch (err) {
-        console.error(err);
-    }
+async function autoScroll(page) {
+    await page.evaluate(async () => {
+        await new Promise((resolve, reject) => {
+            var distance = 800;
+            var timerCount = 20;
+            var timer = setInterval(() => {
+                window.scrollBy(0, distance);
+
+                if (timerCount == 0) {
+                    clearInterval(timer);
+                    resolve();
+                }
+                timerCount--;
+            }, 100);
+        });
+    });
 }
+
+async function scrapTwitter() {
+    const browser = await puppeteer.launch({ headless: true });
+    const page = await browser.newPage();
+
+    await page.goto('https://twitter.com/PlayStationCA', {timeout: 60000});
+    await page.setViewport({
+        width: 1200,
+        height: 2800
+    });
+    await page.waitForSelector('article');
+    await autoScroll(page);
+
+    const results = await page.$$eval('article div[lang]', (tweets) => tweets.map((tweet) => tweet.textContent));
+    console.log(results.length);
+
+    browser.close();
+}
+
+scrapTwitter();
