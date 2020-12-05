@@ -1,33 +1,13 @@
 const http = require('http');
 const puppeteer = require('puppeteer');
 
-var server = http.createServer(async (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:8080');
-    if (req.url == "/cnn") {
-        let cnnPosts = await scrapCnn()
-
-        res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.write(JSON.stringify(cnnPosts));
-        res.end();
-    }
-    else if (req.url == "/twitter") {
-        let tweets = await scrapTwitter()
-
-        res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.write(JSON.stringify(tweets));
-        res.end();
-    }
-    else
-        res.end('Invalid Request!');
-
-})
-
 async function scrapCnn() {
     try {
         const browser = await puppeteer
             .launch();
         const page = await browser.newPage();
-        await page.goto('https://edition.cnn.com/search?q=playstation+5&size=25', { timeout: 60000 });
+
+        await page.goto('https://edition.cnn.com/search?q=playstation+5&size=25', { timeout: 3000000 });
         await page.waitForSelector('body');
 
         let grabArticles = await page.evaluate(() => {
@@ -102,8 +82,28 @@ async function scrapTwitter() {
     }
 }
 
+var server = http.createServer(async (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:8080');
+    if (req.url == "/cnn") {
+        let cnnPosts = await scrapCnn()
+
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.write(JSON.stringify(cnnPosts));
+        res.end();
+    }
+    else if (req.url == "/twitter") {
+        let tweets = await scrapTwitter()
+
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.write(JSON.stringify(tweets));
+        res.end();
+    }
+    else
+        res.end('Invalid Request!');
+});
+
 server.listen(5000);
 console.log('Node.js web server at port 5000 is running..')
-/* scrapTwitter().then(function (data) {
+/* scrapCnn().then(function (data) {
     console.log(data);
 }) */
