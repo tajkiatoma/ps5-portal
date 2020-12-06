@@ -35,8 +35,9 @@ Note that this assignment is not about being the fastest to finish! You will get
 ### Dependencies
 * puppeteer
 
-### Challenges Faced
+### Challenges/Problems Faced
 * APIs are available but not easily consumable!
+* CNN developer website is buggy
 * New in scraping
 
 ## System Requirement
@@ -45,7 +46,7 @@ Note that this assignment is not about being the fastest to finish! You will get
 ## How to Run
 1. Get the repository
 2. Run server 
-3. Run client
+3. Run client: install dev dependencies. npm start.
 
 ## Visit the Page
 --- add the url
