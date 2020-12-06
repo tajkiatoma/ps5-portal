@@ -58,7 +58,7 @@ async function scrapTwitter() {
         const browser = await puppeteer.launch({ headless: true });
         const page = await browser.newPage();
 
-        await page.goto('https://twitter.com/PlayStationCA', { timeout: 3000000 });
+        await page.goto('https://twitter.com/Ps5_New', { timeout: 3000000 });
         await page.setViewport({
             width: 1200,
             height: 2800
