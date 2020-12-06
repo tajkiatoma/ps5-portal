@@ -67,10 +67,12 @@ Open a command line interface (CLI) inside the `ps5-portal` directory for the ne
 Run `npm install` in the CLI to install all the node packages necessary for the app.
 
 ### 4. Run server 
-Run `node server\server.js` in the CLI to start the server.
+1. Go inside the `server` directory from CLI
+2. Run `node server.js` in the CLI to start the server.
 
-### 5. Run client: 
-Run `npm start` in another CLI to start the client.
+### 5. Run client
+1. Go inside the `client` directory from CLI
+2. Run `npx live-server` in another CLI to start the client.
 
 ## Visit the Page
 --- add the url
