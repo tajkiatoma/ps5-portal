@@ -21,7 +21,7 @@ After you finish, please share with me:
 Note that this assignment is not about being the fastest to finish! You will get bonus points for creativity and the quality of your code and documentation.
 
 ## Solution
-I have used https://edition.cnn.com/search?q=playstation+5&size=25 to get the latest 25 articles about PS5 from CNN.com and https://twitter.com/PlayStationCA to get the latest 25 tweets from the PS5 Twitter account. Since there is no official Twitter account for PS5, just picked one account related to PS5.
+I have used https://edition.cnn.com/search?q=playstation+5&size=25 to get the latest 25 articles about PS5 from CNN.com and https://twitter.com/Ps5_New to get the latest 25 tweets from the PS5 Twitter account. Since there is no official Twitter account for PS5, just picked one account related to PS5.
 
 I have created a server to scrap data from the pages. A headless browser, puppeteer, has been used to scrap the pages. The data is processed and prepared for the UI in the server and sent to the client. 
 
