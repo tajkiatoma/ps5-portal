@@ -22,15 +22,15 @@ Note that this assignment is not about being the fastest to finish! You will get
 
 ## Solution
 
-### Languages
+### Languages and Frameworks
 * JavaScript
+* Angular
+* jQuery
 * HTML
 * CSS
 
-### Technologies and Frameworks
-* Scraping
-* Angular
-* jQuery
+### ‎Techniques
+* Web Scraping
 
 ### Dependencies
 * [puppeteer](https://github.com/puppeteer/puppeteer): To control a headless Chrome browser programmatically and extract data smoothly and fast.
