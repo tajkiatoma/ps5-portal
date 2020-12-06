@@ -23,10 +23,10 @@ Note that this assignment is not about being the fastest to finish! You will get
 ## Solution
 I have used https://edition.cnn.com/search?q=playstation+5&size=25 to get the latest 25 articles about PS5 from CNN.com and https://twitter.com/Ps5_New to get the latest 25 tweets from the PS5 Twitter account. Since there is no official Twitter account for PS5, just picked one account related to PS5.
 
-I have created a server to scrap data from the pages. A headless browser, puppeteer, has been used to scrap the pages. The data is processed and prepared for the UI in the server and sent to the client. 
+I have created a server to scrap data from the pages. A headless browser, puppeteer, has been used to scrap the pages. The data is processed and prepared for the UI in the server and sent to the client. A user can see the list of titles of the articles and tweets are displayed on the landing page. After the click on the titles, a section is expanded to display the other crawled information. Also, the user can go to the original post by clicking the provided links with each post.
 
 ### Additional feature
-I have added another list of tweets having hashtag #PS5 in the tweet. As a Twitter user and PlayStation 5 lover, what others near you are talking about PlayStation 5 may add some value to you. Here, *Near You* is a location based search filter of Twitter. So, the page I scraped is https://twitter.com/hashtag/ps5?lang=en&lf=on. The list is also visible in the landing page.
+I have added another list of tweets having hashtag #PS5 in the tweet. As a Twitter user and PlayStation 5 lover, what others near you are talking about PlayStation 5 may add some value to you. Here, *Near You* is a location-based search filter of Twitter. So, the page I scraped is https://twitter.com/hashtag/ps5?lang=en&lf=on. The list is also visible on the landing page.
 
 ### Languages and Frameworks
 #### Backend
