@@ -79,7 +79,7 @@ async function scrapTwitter() {
                     detail: $detail.getAttribute("aria-label")
                 };
             });
-            return tweets;
+            return tweets.length > 25 ? tweets.slice(0, 25) : tweets;
         });
 
         await browser.close();
