@@ -33,22 +33,35 @@ Note that this assignment is not about being the fastest to finish! You will get
 * jQuery
 
 ### Dependencies
-* puppeteer
+* [puppeteer](https://github.com/puppeteer/puppeteer): To control a headless Chrome browser programmatically and extract data smoothly and fast.
 
-### Challenges/Problems Faced
+### Challenges/Problems I Faced
 * APIs are available but not easily consumable!
 * CNN developer website is buggy
 * New in scraping
 
 ## System Requirement
-* Node.js v12.19.0
+* `Node.js v12.19.0`. It may also work with slightly older versions of Node.
 
 ## How to Run
-1. Get the repository
-2. Run server 
-3. Run client: install dev dependencies. npm start.
+### 1. Get the repository
+* Clone the repository with git command. 
+```
+git clone https://github.com/tajkiatoma/ps5-portal
+```
+* Alternatively, download the repository from [here](https://github.com/tajkiatoma/ps5-portal/archive/master.zip).
+
+### 2. Go to repository directory
+Open a command line interface (CLI) inside the `ps5-portal` directory for the next steps.
+
+### 3. Install dependencies
+Run `npm install` in the CLI to install all the node packages necessary for the app.
+
+### 4. Run server 
+Run `node server\server.js` in the CLI to start the server.
+
+### 5. Run client: install dev dependencies. npm start.
+Run `npm start` in another CLI to start the client.
 
 ## Visit the Page
 --- add the url
-
-## Limitations
