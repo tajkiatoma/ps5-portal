@@ -21,11 +21,18 @@ After you finish, please share with me:
 Note that this assignment is not about being the fastest to finish! You will get bonus points for creativity and the quality of your code and documentation.
 
 ## Solution
+I have created a server to scrape data from the https://edition.cnn.com/search?q=playstation+5&size=25 and https://twitter.com/PlayStationCA pages. The data is processed and prepared for the UI in the server and sent to the client. 
+
+### Additional feature
 
 ### Languages and Frameworks
+#### Backend
+* JavaScript
+* jQuery
+
+#### Frontend
 * JavaScript
 * Angular
-* jQuery
 * HTML
 * CSS
 
@@ -35,10 +42,10 @@ Note that this assignment is not about being the fastest to finish! You will get
 ### Dependencies
 * [puppeteer](https://github.com/puppeteer/puppeteer): To control a headless Chrome browser programmatically and extract data smoothly and fast.
 
-### Challenges/Problems I Faced
+### Challenges/Problems Faced
 * APIs are available but not easily consumable!
 * CNN developer website is buggy
-* New in scraping
+* I am new in scraping
 
 ## System Requirement
 * `Node.js v12.19.0`. It may also work with slightly older versions of Node.
@@ -60,7 +67,7 @@ Run `npm install` in the CLI to install all the node packages necessary for the 
 ### 4. Run server 
 Run `node server\server.js` in the CLI to start the server.
 
-### 5. Run client: install dev dependencies. npm start.
+### 5. Run client: 
 Run `npm start` in another CLI to start the client.
 
 ## Visit the Page
