@@ -26,11 +26,11 @@ I have used https://edition.cnn.com/search?q=playstation+5&size=25 to get the la
 I have created a server to scrap data from the pages. A headless browser, puppeteer, has been used to scrap the pages. The data is processed and prepared for the UI in the server and sent to the client. 
 
 ### Additional feature
+I have added another list of tweets having hashtag #PS5 in the tweet. As a Twitter user and PlayStation 5 lover, what others near you are talking about PlayStation 5 may add some value to you. Here, *Near You* is a location based search filter of Twitter. So, the page I scraped is https://twitter.com/hashtag/ps5?lang=en&lf=on. The list is also visible in the landing page.
 
 ### Languages and Frameworks
 #### Backend
-* JavaScript
-* jQuery
+* Node.js
 
 #### Frontend
 * JavaScript
