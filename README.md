@@ -21,7 +21,7 @@ After you finish, please share with me:
 Note that this assignment is not about being the fastest to finish! You will get bonus points for creativity and the quality of your code and documentation.
 
 ## Solution
-I have created a server to scrape data from the https://edition.cnn.com/search?q=playstation+5&size=25 and https://twitter.com/PlayStationCA pages. The data is processed and prepared for the UI in the server and sent to the client. 
+I have created a server to scrap data from the https://edition.cnn.com/search?q=playstation+5&size=25 and https://twitter.com/PlayStationCA pages. A headless browser, puppeteer, has been used to scrap the pages. The data is processed and prepared for the UI in the server and sent to the client. 
 
 ### Additional feature
 
