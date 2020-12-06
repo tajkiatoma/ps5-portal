@@ -8,4 +8,8 @@ myApp.controller('ArticlesController', ['$scope', '$http', function ($scope, $ht
         console.log(response.data);
         $scope.articles.twitter = response.data;
     });
+    $http.get('http://localhost:5000/other').then(function(response){
+        console.log(response.data);
+        $scope.articles.other = response.data;
+    });
 }]);

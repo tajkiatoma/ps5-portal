@@ -71,7 +71,7 @@ async function scrapTwitter() {
                 let $title = tweet.querySelector("div[lang]");
                 let $link = tweet.querySelector("a[dir]");
                 let $date = tweet.querySelector("time");
-                let $detail = tweet.querySelector("div[data-testid='tweet'] div:nth-child(3)");
+                let $detail = tweet.querySelector("div[data-testid='tweet']>div:nth-of-type(2)>div:nth-of-type(2)>div[aria-label]");
                 return {
                     title: $title.textContent ,
                     url: 'https://twitter.com' + $link.getAttribute("href"),
@@ -80,6 +80,50 @@ async function scrapTwitter() {
                 };
             });
             return tweets.length > 25 ? tweets.slice(0, 25) : tweets;
+        });
+
+        await browser.close();
+        return results;
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+async function scrapOtherTweets() {
+    try {
+        const browser = await puppeteer.launch({ headless: true });
+        const page = await browser.newPage();
+
+        await page.goto('https://twitter.com/hashtag/ps5?lang=en&lf=on', { timeout: 3000000 });
+        await page.setViewport({
+            width: 1200,
+            height: 2000
+        });
+        await page.waitForSelector('article');
+        await autoScroll(page);
+
+        let results = await page.$$eval('article', ($tweetList) => {
+            let tweets = $tweetList.map((tweet) => {
+                let $title = tweet.querySelector("div[lang]");
+                let $link = tweet.querySelector("a[dir]");
+                let $date = tweet.querySelector("time");
+                let $detail = tweet.querySelector("div[data-testid='tweet']>div:nth-of-type(2)>div:nth-of-type(2)>div[aria-label]");
+                let $user = {
+                    name: tweet.querySelector("div[data-testid='tweet']>div:nth-of-type(2)>div>div>div>div>div>a>div>div"),
+                    username: tweet.querySelector("div[data-testid='tweet']>div:nth-of-type(2)>div>div>div>div>div>a>div>div:nth-child(2)"),
+                    profileLink: tweet.querySelector("div[data-testid='tweet']>div:nth-of-type(2)>div>div>div>div>div>a").getAttribute("href"),
+                    profileImg: tweet.querySelector("div[data-testid='tweet'] div img").getAttribute("src")
+                }
+                
+                return {
+                    title: $title.textContent ,
+                    url: 'https://twitter.com' + $link.getAttribute("href"),
+                    date: $date.innerHTML,
+                    detail: $detail.getAttribute("aria-label"),
+                    postedBy: $user
+                };
+            });
+            return tweets.length > 10 ? tweets.slice(0, 10) : tweets;
         });
 
         await browser.close();
@@ -105,12 +149,19 @@ var server = http.createServer(async (req, res) => {
         res.write(JSON.stringify(tweets));
         res.end();
     }
+    else if (req.url == "/other") {
+        let tweets = await scrapOtherTweets()
+
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.write(JSON.stringify(tweets));
+        res.end();
+    }
     else
         res.end('Invalid Request!');
 });
 
 server.listen(5000);
 console.log('Node.js web server at port 5000 is running..')
-/* scrapTwitter().then(function (data) {
+/* scrapOtherTweets().then(function (data) {
     console.log(data);
 }) */
