@@ -4,7 +4,7 @@
   "description": "This task is assigned by Professor Cor-Paul Bezemer of the University of Alberta to evaluate candidates for the ASGAARD lab.",
   "main": "index.html",
   "scripts": {
-    "start": "npx live-server",
+    "start": "node server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,5 +25,9 @@
   },
   "dependencies": {
     "puppeteer": "^5.5.0"
+  },
+  "engines": {
+    "node": "14.x",
+    "npm": "*"
   }
 }

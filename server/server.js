@@ -1,5 +1,6 @@
 const http = require('http');
 const puppeteer = require('puppeteer');
+const port = process.env.port || 5000;
 
 async function scrapCnn() {
     try {
@@ -164,7 +165,6 @@ var server = http.createServer(async (req, res) => {
         res.end('Invalid Request!');
 });
 
-const port = 5000;
 server.listen(port);
 console.log(`Node.js web server at port ${5000} is running..`)
 /* scrapOtherTweets().then(function (data) {
