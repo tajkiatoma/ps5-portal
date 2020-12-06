@@ -20,7 +20,7 @@ async function scrapCnn() {
                 let $detail = article.querySelector(".cnn-search__result-body");
                 articles.push({
                     title: $link.innerHTML,
-                    url: $link.getAttribute("href"),
+                    url: 'https:' + $link.getAttribute("href"),
                     date: $date.innerHTML,
                     detail: $detail.innerHTML
                 });
