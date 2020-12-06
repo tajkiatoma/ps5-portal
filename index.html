@@ -14,12 +14,12 @@
 </head>
 
 <body ng-app="ps5.portal">
-    <main role="main" class="container-fluid">
+    <main role="main" class="container-fluid" ng-controller="ArticlesController">
         <div
             class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
             <h3 class="my-0 mr-md-auto font-weight-normal">PlayStation 5 Portal!</h3>
         </div>
-        <div class="row" ng-controller="ArticlesController">
+        <div class="row">
             <div class="col">
                 <h5>CNN News Portal: latest articles about PS5 from CNN.com</h5>
                 <ul class="list-group">
@@ -43,8 +43,8 @@
             <div class="col">
                 <h5>Tweets Portal: latest tweets from PlayStation Canada Twitter account</h5>
                 <ul class="list-group">
-                    <li class="list-group-item list-group-item-action cursor-pointer" 
-                        ng-repeat="article in articles.twitter"  ng-click="article.display = !article.display">
+                    <li class="list-group-item list-group-item-action cursor-pointer"
+                        ng-repeat="article in articles.twitter" ng-click="article.display = !article.display">
                         <h5 class="mb-1">{{article.title}}</h5>
                         <svg class="bi" width="1em" height="1em" fill="currentColor">
                             <use xlink:href="img/bootstrap-icons.svg#clock" />
@@ -65,8 +65,8 @@
             <div class="col">
                 <h5>What others near you are tweeting about PlayStation 5</h5>
                 <ul class="list-group">
-                    <li class="list-group-item list-group-item-action cursor-pointer" 
-                        ng-repeat="article in articles.other"  ng-click="article.display = !article.display">
+                    <li class="list-group-item list-group-item-action cursor-pointer"
+                        ng-repeat="article in articles.other" ng-click="article.display = !article.display">
                         <h5 class="mb-1">{{article.title}}</h5>
                         <svg class="bi" width="1em" height="1em" fill="currentColor">
                             <use xlink:href="img/bootstrap-icons.svg#clock" />
@@ -78,22 +78,23 @@
                             </svg>
                             <small>Open original</small>
                         </a>
-                        <p class="mb-1" ng-show="article.display">{{article.detail}}</p>
-                        <p>Posted By:</p>
-                        <div class="card mb-3" style="max-width: 540px;">
-                            <div class="row no-gutters">
-                              <div class="col-md-4">
-                                <img ng-src="{{article.postedBy.profileImg}}" class="card-img" alt="...">
-                              </div>
-                              <div class="col-md-8">
-                                <div class="card-body">
-                                  <h5 class="card-title">{{article.postedBy.name}}</h5>
-                                  <p class="card-text">{{article.postedBy.username}}</p>
-                                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <div ng-show="article.display">
+                            <p class="mb-1">{{article.detail}}</p>
+                            <p>Posted By:</p>
+                            <div class="card mb-3" style="max-width: 540px;">
+                                <div class="row no-gutters">
+                                    <div class="col-md-4">
+                                        <img ng-src="{{article.postedBy.profileImg}}" class="card-img" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{article.postedBy.name}}</h5>
+                                            <p class="card-text">{{article.postedBy.username}}</p>
+                                        </div>
+                                    </div>
                                 </div>
-                              </div>
                             </div>
-                          </div>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -107,4 +108,5 @@
     <script src="js/app.js"></script>
     <script src="js/articlesController.js"></script>
 </body>
+
 </html>

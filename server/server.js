@@ -108,19 +108,23 @@ async function scrapOtherTweets() {
                 let $link = tweet.querySelector("a[dir]");
                 let $date = tweet.querySelector("time");
                 let $detail = tweet.querySelector("div[data-testid='tweet']>div:nth-of-type(2)>div:nth-of-type(2)>div[aria-label]");
-                let $user = {
-                    name: tweet.querySelector("div[data-testid='tweet']>div:nth-of-type(2)>div>div>div>div>div>a>div>div"),
-                    username: tweet.querySelector("div[data-testid='tweet']>div:nth-of-type(2)>div>div>div>div>div>a>div>div:nth-child(2)"),
-                    profileLink: tweet.querySelector("div[data-testid='tweet']>div:nth-of-type(2)>div>div>div>div>div>a").getAttribute("href"),
-                    profileImg: tweet.querySelector("div[data-testid='tweet'] div img").getAttribute("src")
-                }
+
+                let $posterInfo = tweet.querySelector("div[data-testid='tweet'] div:nth-of-type(2) a");
+                let $posterName = $posterInfo.querySelector("div>div");
+                let $posterUsername = [...$posterInfo.querySelectorAll("div>div")].pop();
+                let $profileImg = tweet.querySelector("div[data-testid='tweet'] div img");
                 
                 return {
                     title: $title.textContent ,
                     url: 'https://twitter.com' + $link.getAttribute("href"),
                     date: $date.innerHTML,
                     detail: $detail.getAttribute("aria-label"),
-                    postedBy: $user
+                    postedBy: {
+                        name: $posterName.textContent,
+                        username: $posterUsername.textContent,
+                        profileLink: 'https://twitter.com' + $posterInfo.getAttribute("href"),
+                        profileImg: $profileImg.getAttribute("src")
+                    }
                 };
             });
             return tweets.length > 10 ? tweets.slice(0, 10) : tweets;
@@ -160,8 +164,9 @@ var server = http.createServer(async (req, res) => {
         res.end('Invalid Request!');
 });
 
-server.listen(5000);
-console.log('Node.js web server at port 5000 is running..')
+const port = 5000;
+server.listen(port);
+console.log(`Node.js web server at port ${5000} is running..`)
 /* scrapOtherTweets().then(function (data) {
     console.log(data);
 }) */
