@@ -72,7 +72,7 @@ Run `npm install` in the CLI to install all the node packages necessary for the 
 
 ### 5. Run client
 1. Go inside the `client` directory from CLI
-2. Run `npx live-server` in another CLI to start the client.
+2. Run `npx live-server --port=58429` in another CLI to start the client.
 
 ## Visit the Page
 --- add the url

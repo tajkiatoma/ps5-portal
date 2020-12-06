@@ -139,7 +139,7 @@ async function scrapOtherTweets() {
 }
 
 var server = http.createServer(async (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:8080');
+    res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:58429');
     if (req.url == "/cnn") {
         let cnnPosts = await scrapCnn()
 
