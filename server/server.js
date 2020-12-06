@@ -71,10 +71,12 @@ async function scrapTwitter() {
                 let $title = tweet.querySelector("div[lang]");
                 let $link = tweet.querySelector("a[dir]");
                 let $date = tweet.querySelector("time");
+                let $detail = tweet.querySelector("div[data-testid='tweet'] div:nth-child(3)");
                 return {
                     title: $title.textContent ,
                     url: 'https://twitter.com' + $link.getAttribute("href"),
-                    date: $date.innerHTML
+                    date: $date.innerHTML,
+                    detail: $detail.getAttribute("aria-label")
                 };
             });
             return tweets;
